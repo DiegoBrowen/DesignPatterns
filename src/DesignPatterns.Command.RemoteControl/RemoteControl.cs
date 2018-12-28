@@ -17,5 +17,10 @@ namespace DesignPatterns.Command.RemoteControl
         {
             _slot = command;
         }
+
+        public void ButtonWasPressed()
+        {
+            _slot.Execute();
+        }
     }
 }
