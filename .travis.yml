@@ -1,2 +1,18 @@
 language: csharp
-solution: DesignPatterns.sln
+mono: none
+os: linux
+dist: trusty
+dotnet: 2.0.0
+script:
+- dotnet build -c Release
+- dotnet test
+- dotnet pack -c Release
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: dotnet nuget push src/DesignPatterns.Command.RemoteControl/bin/Release/DesignPatterns.Command.RemoteControl.*.nupkg -k oy2m25g7oare3obpcaqq6he4ztf7qatehk5hzovr35ubye
+  on:
+    tags: true
+    condition: $TRAVIS_TAG =~ ^(\d+\.)?(\d+\.)?(\*|\d+)$
+    
+    
