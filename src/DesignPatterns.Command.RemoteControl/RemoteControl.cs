@@ -37,10 +37,10 @@ namespace DesignPatterns.Command.RemoteControl
             foreach (var onCommand in _onCommands)
             {
                 var offCommand = _offCommands[onCommand.Key];
-                text.AppendLine($"[slot {onCommand.Key}] -> { onCommand.GetType() }");
-                text.AppendLine($"[slot {offCommand}] -> { offCommand.GetType() }");
+                text.AppendLine($"[slot {onCommand.Key}] -> { onCommand.Value }");
+                text.AppendLine($"[slot {onCommand.Key}] -> { offCommand }");
             }
-            return base.ToString();
+            return text.ToString();
         }
     }
 }

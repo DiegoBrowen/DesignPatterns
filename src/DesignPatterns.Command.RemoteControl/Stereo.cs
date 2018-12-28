@@ -13,6 +13,10 @@ namespace DesignPatterns.Command.RemoteControl
             return "Stero on";
         }
 
+        public string Off()
+        {
+            return "Stero off";
+        }
 
         public string SetCd()
         {

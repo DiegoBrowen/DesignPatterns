@@ -4,22 +4,18 @@ using System.Text;
 
 namespace DesignPatterns.Command.RemoteControl
 {
-    public class StereoOnWithCdCommand : ICommand
+    public class StereoOffCommand : ICommand
     {
         private readonly Stereo _stereo;
         public string Result { get; private set; }
-
-        public StereoOnWithCdCommand(Stereo stereo)
+        public StereoOffCommand(Stereo stereo)
         {
             _stereo = stereo;
         }
+
         public void Execute()
         {
-            var result = new StringBuilder();
-            result.AppendLine(_stereo.On());
-            result.AppendLine(_stereo.SetCd());
-            result.AppendLine(_stereo.SetVolume(11));
-            Result = result.ToString();
+            Result = _stereo.Off();
             Console.WriteLine(Result);
         }
     }

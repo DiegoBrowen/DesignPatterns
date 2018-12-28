@@ -17,6 +17,7 @@ namespace DesignPatterns.Command.RemoteControl
         public void Execute()
         {
             Result = _light.Off();
+            Console.WriteLine(Result);
         }
     }
 }
