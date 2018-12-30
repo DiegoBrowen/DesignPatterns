@@ -8,6 +8,7 @@ namespace DesignPatterns.Command.RemoteControl
     {
         private Dictionary<int, ICommand> _onCommands;
         private Dictionary<int, ICommand> _offCommands;
+        private ICommand _undoCommand;
 
         public RemoteControl()
         {
@@ -21,14 +22,21 @@ namespace DesignPatterns.Command.RemoteControl
             _offCommands.Add(slot, offCommand);
         }
 
-        public void OnButtonWasPressed(int slot)
+        public void OnButtonWasPushed(int slot)
         {
             _onCommands[slot].Execute();
+            _undoCommand = _onCommands[slot];
         }
 
-        public void OffButtonWasPressed(int slot)
+        public void OffButtonWasPushed(int slot)
         {
             _offCommands[slot].Execute();
+            _undoCommand = _offCommands[slot];
+        }
+
+        public void UndoButtonWasPushed()
+        {
+            _undoCommand.Undo();
         }
 
         public override string ToString()

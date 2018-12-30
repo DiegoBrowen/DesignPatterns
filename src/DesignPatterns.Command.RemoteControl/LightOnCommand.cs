@@ -19,5 +19,11 @@ namespace DesignPatterns.Command.RemoteControl
             Result = _light.On();
             Console.WriteLine(Result);
         }
+
+        public void Undo()
+        {
+            Result = _light.Off();
+            Console.WriteLine(Result);
+        }
     }
 }

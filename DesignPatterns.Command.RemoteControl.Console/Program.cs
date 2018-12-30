@@ -22,11 +22,13 @@ namespace DesignPatterns.Command.RemoteControl.Console
             
             System.Console.WriteLine(remoteControl.ToString());
 
-            remoteControl.OnButtonWasPressed(0);
-            remoteControl.OffButtonWasPressed(0);
+            remoteControl.OnButtonWasPushed(0);
+            remoteControl.OffButtonWasPushed(0);
+            remoteControl.UndoButtonWasPushed();
 
-            remoteControl.OnButtonWasPressed(1);
-            remoteControl.OffButtonWasPressed(1);
+            remoteControl.OnButtonWasPushed(1);
+            remoteControl.OffButtonWasPushed(1);
+            remoteControl.UndoButtonWasPushed();
             System.Console.ReadKey();
         }
     }

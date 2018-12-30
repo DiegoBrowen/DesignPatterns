@@ -18,5 +18,11 @@ namespace DesignPatterns.Command.RemoteControl
             Result = _stereo.Off();
             Console.WriteLine(Result);
         }
+
+        public void Undo()
+        {
+            Result = _stereo.On();
+            Console.WriteLine(Result);
+        }
     }
 }
