@@ -7,5 +7,6 @@ namespace DesignPatterns.Command.RemoteControl
     public interface ICommand
     {
         void Execute();
+        void Undo();
     }
 }

@@ -4,25 +4,24 @@ using System.Text;
 
 namespace DesignPatterns.Command.RemoteControl
 {
-    public class LightOnCommand : ICommand
+    public class StereoOffCommand : ICommand
     {
-        private readonly Light _light;
+        private readonly Stereo _stereo;
         public string Result { get; private set; }
-
-        public LightOnCommand(Light light)
+        public StereoOffCommand(Stereo stereo)
         {
-            _light = light;
+            _stereo = stereo;
         }
 
         public void Execute()
         {
-            Result = _light.On();
+            Result = _stereo.Off();
             Console.WriteLine(Result);
         }
 
         public void Undo()
         {
-            Result = _light.Off();
+            Result = _stereo.On();
             Console.WriteLine(Result);
         }
     }

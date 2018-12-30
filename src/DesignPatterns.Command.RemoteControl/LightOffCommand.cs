@@ -4,25 +4,25 @@ using System.Text;
 
 namespace DesignPatterns.Command.RemoteControl
 {
-    public class LightOnCommand : ICommand
+    public class LightOffCommand : ICommand
     {
         private readonly Light _light;
         public string Result { get; private set; }
 
-        public LightOnCommand(Light light)
+        public LightOffCommand(Light light)
         {
             _light = light;
         }
 
         public void Execute()
         {
-            Result = _light.On();
+            Result = _light.Off();
             Console.WriteLine(Result);
         }
 
         public void Undo()
         {
-            Result = _light.Off();
+            Result = _light.On();
             Console.WriteLine(Result);
         }
     }
